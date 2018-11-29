@@ -1,11 +1,17 @@
 # RC
 
 This library provides a simple replacement for when `std::shared_ptr`s are not
-suitable. Its main selling point is that it's actually *not* atomic (saving some
-of the associated overhead), and the two main types of the library (`rc` and
-`weak_rc`) are the size of the architecture's word size, allowing to be passed
-to C style functions take a `void*` as their generic parameter. To faciliatate
-this, special converstion methods are provided to cast to `void*` and to
-reconstruct the rc types from `void*`.
-RC stands for "reference counted" (very creative, I know), inspired by Rust's
-`Arc`. However, this library
+suitable. Rc stands for "reference counted" (very creative, I know), inspired by Rust's
+`Arc`. The API is similar to that of `std::shared_ptr` and `std::weak_ptr`.
+
+## Why
+
+Rc has two main selling points.
+
+One, both pointer types are *non* atomic (saving some of the associated overhead).
+
+Second, both pointer types (`rc` and`weak_rc`) are the size of
+the architecture's word size (i.e. equal to `sizeof(void*)`. Besides saving space, this allows rc pointers to be passed
+to C style functions that take a `void*` as their generic parameter. To faciliatate
+this, special conversion methods are provided to cast to `void*` and to
+reconstruct rc pointers from `void*`.
