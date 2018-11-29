@@ -15,3 +15,7 @@ the architecture's word size (i.e. equal to `sizeof(void*)`. Besides saving spac
 to C style functions that take a `void*` as their generic parameter. To faciliatate
 this, special conversion methods are provided to cast to `void*` and to
 reconstruct rc pointers from `void*`.
+
+## Disclaimer
+
+*USE AT YOUR OWN RISK!* This library has not been thoroughly tested, it's a recent experiment that needs further evaluation.
