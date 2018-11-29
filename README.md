@@ -8,7 +8,7 @@ suitable. Rc stands for "reference counted" (very creative, I know), inspired by
 
 Rc has two main selling points.
 
-One, both pointer types are *non* atomic (saving some of the associated overhead).
+One, both pointer types are *non* atomic (saving some of the associated overhead)--and thus *not* thread safe!
 
 Second, both pointer types (`rc` and`weak_rc`) are the size of
 the architecture's word size (i.e. equal to `sizeof(void*)`. Besides saving space, this allows rc pointers to be passed
